@@ -1,0 +1,7 @@
+import("clime")
+import("gplots")
+export("prec2dens","prec2part","DensParcorr")
+importFrom("grDevices", "dev.off", "png")
+importFrom("graphics", "legend", "par", "plot", "points")
+importFrom("utils", "write.table")
+
