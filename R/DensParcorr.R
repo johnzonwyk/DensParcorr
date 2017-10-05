@@ -99,26 +99,28 @@
 #' # require(clime)
 #'
 #' ## Simulated the data to use.
-#' # data = matrix(rnorm(200),ncol=20)
+#' data = matrix(rnorm(200),ncol=20)
 #'
 #' ##### Example 1: Estimate the partial correlation matrices for the
 #' ##### default series of tuning parameters.
-#' # t0 = proc.time()[3]
-#' # dens.est = DensParcorr(data,select=FALSE)
-#' # proc.time()[3]-t0
+#' t0 = proc.time()[3]
+#' dens.est = DensParcorr(data,select=FALSE, directory = tempfile())
+#' proc.time()[3]-t0
 #'
 #' ##### Example 2: Estimate the network that reaches 40% density level.
-#' # partial.dens.est = DensParcorr(data,dens.level  =.4,select=TRUE)
+#' partial.dens.est = DensParcorr(data,dens.level  =.4,select=TRUE,
+#' directory = tempfile())
 #'
 #' ###### Example 3: Now, estimate the 60% density level network based
 #' ###### on the same data. To speed up computation, we read in the
 #' ###### previous output from Example 2 into Parcorr.est
-#' # t0 = proc.time()[3]
-#' # partial.dens.est2 = DensParcorr(data, Parcorr.est = partial.dens.est,
-#' #                                 dens.level=.6,select=TRUE)
-#' # proc.time()[3]-t0
+#' t0 = proc.time()[3]
+#' partial.dens.est2 = DensParcorr(data, Parcorr.est = partial.dens.est,
+#'                                  dens.level=.6,select=TRUE,
+#'                                  directory = tempfile())
+#' proc.time()[3]-t0
 #'
-#' @import clime
+#' @importFrom clime clime
 #' @import gplots
 #' @importFrom grDevices dev.off png
 #' @importFrom graphics legend par plot points
@@ -176,7 +178,9 @@ DensParcorr <- function(
     dens = c(prec2dens(Prec.mat[[1]]),dens)
   }
 
-  dir.create(directory)
+  if (!dir.exists(directory)) {
+    dir.create(directory)
+  }
 
   #### Based on different Tuning Parameter Selection Method ####
   if(select)
