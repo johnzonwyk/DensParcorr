@@ -1,7 +1,8 @@
 Package: DensParcorr
 Type: Package
-Title: Dens-Based Method for Partial Correlation Estimation in Large Scale Brain Networks
-Version: 1.1
+Title: Dens-Based Method for Partial Correlation Estimation in Large 
+    Scale Brain Networks
+Version: 1.1.0
 Date: 2017-10-04
 Authors@R: c(person(given="Yikai", family = "Wang", role = c("aut", "cre"),
     email = "yikai.wang@emory.edu"),
@@ -11,7 +12,8 @@ Authors@R: c(person(given="Yikai", family = "Wang", role = c("aut", "cre"),
     )
 Maintainer: Yikai Wang <yikai.wang@emory.edu>
 Depends: R (>= 3.1.0)
-Description: Provide a Dens-based method for estimating functional connection in large scale brain networks using partial correlation.
+Description: Provide a Dens-based method for estimating functional 
+    connection in large scale brain networks using partial correlation.
 License: GPL-2
 Imports:
     clime,
